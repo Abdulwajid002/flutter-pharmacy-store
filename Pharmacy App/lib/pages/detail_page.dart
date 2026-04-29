@@ -1,0 +1,218 @@
+
+import 'package:flutter/material.dart';
+import 'package:pharmacyapp/pages/order.dart';
+import 'package:pharmacyapp/widgets/support_widget.dart';
+
+class DetailPage extends StatefulWidget {
+  const DetailPage({super.key});
+
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  int quantity = 1;
+
+  void increaseQty() {
+    setState(() {
+      quantity++;
+    });
+  }
+
+  void decreaseQty() {
+    setState(() {
+      if (quantity > 1) quantity--;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 184, 182, 218),
+
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+
+            const SizedBox(height: 50),
+
+
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.arrow_back, color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 10),
+
+
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              height: MediaQuery.of(context).size.height / 2.8,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color(0xffbab3a6),
+                    Color(0xffddd7cd),
+                    Color(0xffa59c8f),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+              ),
+              child: Center(
+                child: Image.asset(
+                  "images/medicine.png",
+                  height: 220,
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.9),
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  // Title + Qty
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Panadol",
+                        style: AppWidget.headlineTextStyle(22.0),
+                      ),
+
+                      // Quantity Box
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: Colors.black12,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          children: [
+
+                            GestureDetector(
+                              onTap: decreaseQty,
+                              child: const Icon(Icons.remove, size: 20),
+                            ),
+
+                            const SizedBox(width: 10),
+
+                            Text(
+                              "$quantity",
+                              style: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+
+                            const SizedBox(width: 10),
+
+                            GestureDetector(
+                              onTap: increaseQty,
+                              child: const Icon(Icons.add, size: 20),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 15),
+
+                  Text(
+                    "Description",
+                    style: AppWidget.lightTextStyle(18.0),
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  const Text(
+                    "Panadol is a widely used medicine for pain relief and fever reduction. It helps in headache, body pain, and flu symptoms effectively.",
+                    style: TextStyle(height: 1.4),
+                  ),
+
+                  const SizedBox(height: 25),
+
+
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.05),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Total Price",
+                              style: AppWidget.lightTextStyle(16.0),
+                            ),
+                            Text(
+                              "\$${quantity * 100}",
+                              style: AppWidget.headlineTextStyle(22.0),
+                            ),
+                          ],
+                        ),
+
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const Order()));
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 25, vertical: 15),
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: const Text(
+                              "Order Now",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 16),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
