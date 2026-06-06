@@ -7,6 +7,7 @@ import 'package:pharmacyapp/pages/login.dart';
 import 'package:pharmacyapp/pages/order.dart';
 import 'package:pharmacyapp/pages/signup.dart';
 import 'package:pharmacyapp/pages/wallet.dart';
+import 'package:pharmacyapp/services/api.dart';
 
 void main() {
   runApp(const MyApp());

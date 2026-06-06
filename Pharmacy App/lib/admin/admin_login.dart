@@ -16,7 +16,7 @@ class _AdminLoginState extends State<AdminLogin> {
       body: Stack(
         children: [
 
-          // 🔷 Top Dark Blue Section (Admin Theme)
+
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height / 2,
@@ -157,7 +157,7 @@ class _AdminLoginState extends State<AdminLogin> {
 
                   SizedBox(height: 30),
 
-                  // 🔹 Login Button
+
                   GestureDetector(
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>const AddProduct()));
