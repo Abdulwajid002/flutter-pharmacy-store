@@ -135,15 +135,13 @@ Backend:
 
 Database:
 
-* MongoDB
+* MYSQL
 
 Authentication:
 
 * JWT Authentication
 
-State Management:
 
-* Provider / GetX
 
 ---
 
@@ -165,6 +163,7 @@ pharmacy_flutter_project
     ├── models
     ├── routes
     ├── middleware
+    ├── services
     ├── config
     └── server.js
 ```
