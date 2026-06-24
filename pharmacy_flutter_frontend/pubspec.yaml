@@ -1,0 +1,45 @@
+name: pharmacyapp
+description: "Pharmacy App with full backend integration."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  curved_navigation_bar: ^1.0.6
+  http: ^1.2.1
+  shared_preferences: ^2.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - images/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins-Light.ttf
+
+    - family: Poppins1
+      fonts:
+        - asset: fonts/Poppins-SemiBold.ttf
+
+    - family: FredokaLight
+      fonts:
+        - asset: fonts/fredoka-latin-400-normal.ttf
+
+    - family: FredokaBold
+      fonts:
+        - asset: fonts/fredoka-latin-ext-700-normal.ttf
